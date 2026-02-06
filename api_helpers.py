@@ -1,16 +1,22 @@
 import requests
 
-base_url = 'http://localhost:5000'
+# base_url = 'http://localhost:5000'
+base_url = 'http://127.0.0.1:5001'
+
 
 # GET requests
-def get_api_data(endpoint, params = {}):
+def get_api_data(endpoint, params=None):
+    if params is None:
+        params = {}
     response = requests.get(f'{base_url}{endpoint}', params=params)
     return response
+
 
 # POST requests
 def post_api_data(endpoint, data):
     response = requests.post(f'{base_url}{endpoint}', json=data)
     return response
+
 
 # PATCH requests
 def patch_api_data(endpoint, data):
